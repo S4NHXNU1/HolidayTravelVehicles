@@ -18,7 +18,6 @@ jobs:
         java-version: '21' # You can change this to the version you want
     - name: Compile Java
       run: |
-        cd Sanhanut/HolidayTravelVehicles 
-        javac -d . *.java
-        java Program
+        javac -d . Sanhanut/HolidayTravelVehicles/*.java
+        java Sanhanut.HolidayTravelVehicles.Program
       # Compile java file from directory
