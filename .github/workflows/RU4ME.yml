@@ -1,0 +1,23 @@
+name: Java CI
+on:
+  push:
+    branches:
+      - Sanhanut
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+        fetch-depth: ${{ env.PR_FETCH_DEPTH }}
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: '21' # You can change this to the version you want
+    - name: Compile Java
+      run: |
+        javac -d . Sanhanut/HolidayTravelVehicles/*.java
+        java Sanhanut.HolidayTravelVehicles.Program
+      # Compile java file from directory
